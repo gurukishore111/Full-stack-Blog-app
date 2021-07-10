@@ -47,10 +47,10 @@ router.put('/:id', async (req, res) => {
   let blog = await Blog.findByIdAndUpdate(
     req.params.id,
     {
-      postTitle: req.body.postTitle,
-      description: req.body.description,
-      image: req.body.image,
-      author: req.body.author,
+      postTitle: req.body.post.postTitle,
+      description: req.body.post.description,
+      image: req.body.post.image,
+      author: req.body.post.author,
     },
     {
       new: true,

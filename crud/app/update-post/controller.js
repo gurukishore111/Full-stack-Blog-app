@@ -22,7 +22,6 @@ export default class UpdatePostController extends Controller {
   @action
   async onsubmit(event) {
     event.preventDefault();
-
     let self = this;
 
     function transitionToHome() {
@@ -33,35 +32,13 @@ export default class UpdatePostController extends Controller {
       // handle the error
       console.log(err);
     }
-    console.log(this.postId, this.postTitle, this.description, this.image);
-    let res = await fetch(`http://localhost:9000/posts/${this.postId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        postTitle: this.postTitle,
-        image: this.image,
-        description: this.description,
-        author: this.author,
-      }),
+    const { postTitle, description, image, author } = this;
+    this.store.findRecord('post', this.postId).then(function (post) {
+      post.postTitle = postTitle;
+      post.description = description;
+      post.image = image;
+      post.author = author;
+      post.save().then(transitionToHome).catch(failure);
     });
-
-    if (res.ok) {
-      transitionToHome();
-      return res.json();
-    } else {
-      let err = await res.text();
-      failure(err);
-      throw new Error(err);
-    }
   }
-
-  // this.store.findRecord('post', this.postId).then(function (post) {
-  //   post.postTitle = this.postTitle;
-  //   post.description = this.description;
-  //   post.image = this.image;
-  //   post.author = this.author;
-  //   post.save().then(transitionToHome).catch(failure);
-  // });
 }
