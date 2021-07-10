@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db": "json-server --watch db.json",
+    "dev": "nodemon server,js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "i": "^0.3.6",
+    "json-server": "^0.16.3",
+    "mongoose": "^5.13.2",
+    "nodemon": "^2.0.11",
+    "npm": "^7.19.1"
+  }
+}

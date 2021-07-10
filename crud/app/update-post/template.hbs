@@ -1,0 +1,39 @@
+<div class='container'>
+  <LinkTo @route='index' class='read-more btn'>
+    <i class='fa fa-arrow-left' aria-hidden='true'></i>
+  </LinkTo>
+</div>
+
+<h2 class='app-title'>Update <span>Blog</span> </h2>
+<form {{on 'submit' this.onsubmit}} class='add-form'>
+  <label for='firstName'>Blog Title</label>
+  <input
+    type='text'
+    id='postTitle'
+    name='postTitle'
+    value={{this.postTitle}}
+    {{on 'change' (fn this.update 'postTitle')}}
+    placeholder='My Blog Title'
+  />
+
+  <label for='description'>Description</label>
+  <input
+    type='text'
+    id='description'
+    value={{this.description}}
+    name='description'
+    {{on 'change' (fn this.update 'description')}}
+    placeholder='Lorem Ipsum is simply dummy text of the printing and typesetting industry......'
+  />
+
+  <label for='mobileNo'>Image Url</label>
+  <input
+    type='text'
+    id='mobileNo'
+    name='mobileNo'
+    value={{this.image}}
+    {{on 'change' (fn this.update 'image')}}
+    placeholder='https://cdn.hackersandslackers.com/2020/04/django-views-1.jpg'
+  />
+  <input type='submit' value='Submit' />
+</form>

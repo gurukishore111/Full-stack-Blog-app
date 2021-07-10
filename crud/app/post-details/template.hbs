@@ -1,0 +1,31 @@
+<GeneralContainer>
+  <LinkTo @route='index' class='read-more btn'>
+    <i class='fa fa-arrow-left' aria-hidden='true'></i>
+  </LinkTo>
+  <div class='flex-title'>
+    <h1>{{this.model.postTitle}}
+    </h1>
+    <div>
+      <LinkTo @route='updatePost' class='edit-btn' @model={{this.model.id}}>
+        <i class='fa fa-pencil' aria-hidden='true'></i>
+      </LinkTo>
+      <i
+        class='fa fa-trash-o delete-icon'
+        aria-hidden='true'
+        {{on 'click' (fn this.deleteItem @this.model.id)}}
+      ></i>
+    </div>
+
+  </div>
+  <img
+    class='post-details-image'
+    src={{this.model.image}}
+    alt={{this.model.postTitle}}
+  />
+  <p class='description'>{{this.model.description}}</p>
+  <hr />
+  <div class='flex-title'>
+    <p>Author : {{this.model.author}}</p>
+    <p class='date'> Published At : {{date this.model.date}}</p>
+  </div>
+</GeneralContainer>
