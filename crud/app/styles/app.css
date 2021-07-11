@@ -28,6 +28,10 @@ a {
   color: black;
 }
 
+.color-primary {
+  color: rgb(243, 159, 159);
+}
+
 h1 {
   font-weight: 600;
 }
@@ -93,6 +97,12 @@ input[type='submit'] {
 .description {
   line-height: 25px;
 }
+.error-text {
+  color: rgb(243, 159, 159);
+  font-weight: bold;
+  font-size: 120px;
+  text-align: center;
+}
 hr {
   color: lightgray;
   border-width: 0.5px;
@@ -127,7 +137,10 @@ hr {
 .post-title {
   margin: 10px 0;
 }
-
+.text-center {
+  text-align: center;
+  display: inline;
+}
 .post-date {
   background: #f4f4f4;
   margin-bottom: 20px;
