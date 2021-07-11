@@ -1,0 +1,60 @@
+<div class='container'>
+  <LinkTo @route='index' class='read-more btn'>
+    <i class='fa fa-arrow-left' aria-hidden='true'></i>
+  </LinkTo>
+</div>
+<h2 class='app-title'><span>Register</span> </h2>
+
+<form {{on 'submit' this.onsubmit}} class='add-form register'>
+  {{#if this.error}}
+    <h4 style='color:red'>{{this.error}}</h4>
+  {{/if}}
+  <label for='name'>Name</label>
+  <input
+    type='text'
+    id='name'
+    name='name'
+    value={{this.name}}
+    {{on 'change' (fn this.update 'name')}}
+    placeholder='johdoe'
+    required
+  />
+
+  <label for='email'>Email</label>
+  <input
+    type='email'
+    id='email'
+    name='email'
+    value={{this.email}}
+    {{on 'change' (fn this.update 'email')}}
+    placeholder='johdoe@gmail.com'
+    required
+  />
+
+  <label for='role'>Role</label>
+  <input
+    type='role'
+    id='role'
+    name='role'
+    value={{this.role}}
+    {{on 'change' (fn this.update 'role')}}
+    placeholder='Eg: full stack developer,student....'
+    required
+  />
+
+  <label for='password'>Password</label>
+  <input
+    type='password'
+    id='password'
+    value={{this.password}}
+    name='password'
+    {{on 'change' (fn this.update 'password')}}
+    placeholder='. . . . .'
+    required
+  />
+  <input type='submit' value='Regsiter' /><br />
+  Already having an account ?
+  <LinkTo @route='login' class='color-primary'>
+    Login
+  </LinkTo>
+</form>

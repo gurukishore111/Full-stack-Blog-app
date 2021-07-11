@@ -4,6 +4,16 @@ import { inject as service } from '@ember/service';
 
 export default class PostDetailsController extends Controller {
   @service store;
+  @service session;
+
+  get currentUserId() {
+    return this.session.data.authenticated.id;
+  }
+
+  get isAdmin() {
+    return this.session.data.authenticated.isAdmin;
+  }
+
   @action
   deleteItem(id) {
     let self = this;

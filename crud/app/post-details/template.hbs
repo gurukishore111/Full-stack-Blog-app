@@ -6,14 +6,27 @@
     <h1>{{this.model.postTitle}}
     </h1>
     <div>
-      <LinkTo @route='updatePost' class='edit-btn' @model={{this.model.id}}>
-        <i class='fa fa-pencil' aria-hidden='true'></i>
-      </LinkTo>
-      <i
-        class='fa fa-trash-o delete-icon'
-        aria-hidden='true'
-        {{on 'click' (fn this.deleteItem @this.model.id)}}
-      ></i>
+      {{#if (eq this.model.author.id this.currentUserId)}}
+        {{! works! }}
+        <LinkTo @route='updatePost' class='edit-btn' @model={{this.model.id}}>
+          <i class='fa fa-pencil' aria-hidden='true'></i>
+        </LinkTo>
+        <i
+          class='fa fa-trash-o delete-icon'
+          aria-hidden='true'
+          {{on 'click' (fn this.deleteItem @this.model.id)}}
+        ></i>
+      {{else if this.isAdmin}}
+        {{! works! }}
+        <LinkTo @route='updatePost' class='edit-btn' @model={{this.model.id}}>
+          <i class='fa fa-pencil' aria-hidden='true'></i>
+        </LinkTo>
+        <i
+          class='fa fa-trash-o delete-icon'
+          aria-hidden='true'
+          {{on 'click' (fn this.deleteItem @this.model.id)}}
+        ></i>
+      {{/if}}
     </div>
 
   </div>
@@ -25,7 +38,7 @@
   <p class='description'>{{this.model.description}}</p>
   <hr />
   <div class='flex-title'>
-    <p>Author : {{this.model.author}}</p>
+    <p>Author : {{this.model.author.name}}</p>
     <p class='date'> Published At : {{date this.model.date}}</p>
   </div>
 </GeneralContainer>

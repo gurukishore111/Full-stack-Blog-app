@@ -1,0 +1,14 @@
+<div class='card'>
+  <img src={{@post.image}} alt={{@post.postTitle}} class='img-post' />
+  <LinkTo @route='postDetails' @model={{@post.id}}>
+    <h2>{{@post.postTitle}}</h2>
+  </LinkTo>
+  {{#if @post.description}}
+    <p>{{truncate-text @post.description limit=100 omission='....'}}</p>
+  {{/if}}
+  <p class='date'> Published at : {{@date post.date}}</p>
+  <p>Author : {{@post.author.name}}</p>
+  <LinkTo @route='postDetails' @model={{@post.id}} class='read-more btn'>
+    Read me &#10140;
+  </LinkTo>
+</div>

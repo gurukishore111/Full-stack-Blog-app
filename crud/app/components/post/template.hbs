@@ -1,0 +1,21 @@
+<div class='post-search'>
+  <label>
+    <span>Stay in trend!</span>
+    <Input @value={{this.query}} class='light' type='search' />
+  </label>
+
+  <Post::Filter @posts={{@posts}} @query={{this.query}} as |results|>
+    <div class='posts'>
+      {{#each results as |post|}}
+        <PostBox @post={{post}} />
+      {{/each}}
+    </div>
+    {{#if (eq results.length 0)}}
+
+      <h3 style='text-align: center;'>No article founded
+        <i class='fa fa-smile-o' aria-hidden='true'></i>
+      </h3>
+    {{/if}}
+  </Post::Filter>
+
+</div>

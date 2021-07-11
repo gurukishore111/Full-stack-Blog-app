@@ -1,2 +1,12 @@
 import Controller from '@ember/controller';
-export default class IndexController extends Controller {}
+import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
+
+export default class IndexController extends Controller {
+  @service session;
+
+  @action
+  logout() {
+    this.session.invalidate();
+  }
+}

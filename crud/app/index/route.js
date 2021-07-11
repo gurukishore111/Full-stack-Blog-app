@@ -7,6 +7,7 @@ export default class IndexRoute extends Route {
   async model() {
     const posts = await this.store.findAll('post');
     console.log(posts);
+    this.content = posts;
     return posts;
   }
 }

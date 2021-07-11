@@ -6,12 +6,12 @@ import { computed } from '@ember/object';
 
 export default class UpdatePostController extends Controller {
   @service store;
+  @service session;
+
   @tracked postTitle;
   @tracked description;
-  @tracked author = 'Guru Kishore';
+  @tracked author = this.session.data.authenticated.id;
   @tracked image;
-  @tracked postId;
-
   @action
   update(attr, event) {
     console.log(attr, event);

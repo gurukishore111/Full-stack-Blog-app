@@ -6,9 +6,11 @@ import { computed } from '@ember/object';
 
 export default class CreatePostController extends Controller {
   @service store;
+  @service session;
+
   @tracked postTitle;
   @tracked description;
-  @tracked author = 'Guru Kishore';
+  @tracked author = this.session.data.authenticated.id;
   @tracked image;
 
   @action

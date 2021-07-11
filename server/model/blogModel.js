@@ -10,8 +10,9 @@ const blogSchema = mongoose.Schema({
     required: true,
   },
   author: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
+    ref: 'user',
   },
   image: {
     type: String,
@@ -32,3 +33,5 @@ blogSchema.set('toJSON', {
 });
 
 exports.Blog = mongoose.model('blog', blogSchema);
+
+//60ea671c8978a00899af324a

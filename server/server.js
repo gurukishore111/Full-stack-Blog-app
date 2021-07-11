@@ -4,6 +4,7 @@ const app = express();
 const connectDb = require('./config/db');
 const dotenv = require('dotenv');
 const postRouter = require('./routes/blogRoute');
+const userRouter = require('./routes/userRoute');
 
 app.use(express.json());
 app.use(cors());
@@ -15,6 +16,7 @@ connectDb();
 // });
 
 app.use('/posts', postRouter);
+app.use('/users', userRouter);
 
 const POST = process.env.POST || 9000;
 

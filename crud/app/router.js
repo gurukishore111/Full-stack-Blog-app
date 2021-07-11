@@ -11,4 +11,6 @@ Router.map(function () {
   this.route('createPost', { path: 'add/post' });
   this.route('updatePost', { path: 'edit/post/:id' });
   this.route('notFounded', { path: '/*path' });
+  this.route('login');
+  this.route('register');
 });

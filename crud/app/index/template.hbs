@@ -1,22 +1,14 @@
+{{#if this.session.isAuthenticated}}
+  <button
+    class='btn read-more logout'
+    {{on 'click' this.logout}}
+  >Logout</button>
+{{/if}}
 <h1 class='app-title'><span>Ember</span> Blog App</h1>
-<GeneralContainer>
-  <div class='posts'>
-    {{#each this.model as |post|}}
-      <div class='card'>
-        <img src={{post.image}} alt={{post.postTitle}} class='img-post' />
-        <LinkTo @route='postDetails' @model={{post.id}}>
-          <h2>{{post.postTitle}}</h2>
-        </LinkTo>
-        {{#if post.description}}
-          <p>{{truncate-text post.description limit=100 omission='....'}}</p>
-        {{/if}}
-        <p class='date'> Published at : {{date post.date}}</p>
-        <p>Author : {{post.author}}</p>
-        <LinkTo @route='postDetails' @model={{post.id}} class='read-more btn'>
-          Read me &#10140;
-        </LinkTo>
-      </div>
+<GeneralContainer homepage={{true}}>
+  <Post @posts={{this.model}} />
+  {{!-- {{#each this.model as |post|}}
+      <PostBox @post={{post}} />
     {{/each}}
-  </div>
-
+  </div> --}}
 </GeneralContainer>

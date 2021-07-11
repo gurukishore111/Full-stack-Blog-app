@@ -5,7 +5,9 @@ const router = express.Router();
 
 //Get Product
 router.get('/', async (req, res) => {
-  const blogData = await Blog.find({}).sort([['date', -1]]);
+  const blogData = await Blog.find({})
+    .sort([['date', -1]])
+    .populate('author');
   if (!blogData) {
     return res
       .status(500)
@@ -15,7 +17,8 @@ router.get('/', async (req, res) => {
 });
 //Get Product by Id
 router.get('/:id', async (req, res) => {
-  const blogData = await Blog.findById(req.params.id);
+  const blogData = await Blog.findById(req.params.id).populate('author');
+
   if (!blogData) {
     return res
       .status(500)
