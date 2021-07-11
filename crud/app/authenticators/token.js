@@ -12,16 +12,19 @@ export default Base.extend({
 
   async authenticate(email, password) {
     console.log(email, password);
-    let res = await fetch('http://localhost:9000/users/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+    let res = await fetch(
+      'https://blog-app-api123.herokuapp.com/users/auth/login',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
 
     if (res.ok) {
       return res.json();

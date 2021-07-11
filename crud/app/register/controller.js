@@ -33,7 +33,7 @@ export default class RegisterController extends Controller {
       console.log(err);
       JSON.stringify(err);
     }
-    let res = await fetch('http://localhost:9000/users/auth/', {
+    let res = await fetch('https://blog-app-api123.herokuapp.com/users/auth/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

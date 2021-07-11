@@ -18,6 +18,6 @@ connectDb();
 app.use('/posts', postRouter);
 app.use('/users', userRouter);
 
-const POST = process.env.POST || 9000;
+const POST = process.env.PORT || 9000;
 
 app.listen(POST, () => console.log(`server listening at ${POST}`));
