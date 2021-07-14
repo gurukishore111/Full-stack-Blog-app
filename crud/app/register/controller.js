@@ -13,15 +13,15 @@ export default class RegisterController extends Controller {
 
   @action
   update(attr, event) {
-    console.log(attr, event);
+    //console.log(attr, event);
     this[attr] = event.target.value;
-    console.log(this.postId);
+    //console.log(this.postId);
   }
 
   @action
   async onsubmit(event) {
     event.preventDefault();
-    console.log(this.password, this.name, this.role, this.email);
+    //console.log(this.password, this.name, this.role, this.email);
     let self = this;
 
     function transitionToLogin() {
@@ -30,7 +30,7 @@ export default class RegisterController extends Controller {
 
     function failure(err) {
       // handle the error
-      console.log(err);
+      //console.log(err);
       JSON.stringify(err);
     }
     let res = await fetch('https://blog-app-api123.herokuapp.com/users/auth/', {

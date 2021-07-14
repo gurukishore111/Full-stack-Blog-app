@@ -13,7 +13,7 @@ export default class LoginController extends Controller {
 
   @action
   async onsubmit(event) {
-    console.log(this.email, this.password);
+    //console.log(this.email, this.password);
     event.preventDefault();
     try {
       await this.session.authenticate(
@@ -22,15 +22,15 @@ export default class LoginController extends Controller {
         this.password
       );
     } catch (error) {
-      console.log(error.message);
+      //console.log(error.message);
       this.error = error.message;
     }
   }
 
   @action
   update(attr, event) {
-    console.log(attr, event);
+    //console.log(attr, event);
     this[attr] = event.target.value;
-    console.log(this.postId);
+    //console.log(this.postId);
   }
 }

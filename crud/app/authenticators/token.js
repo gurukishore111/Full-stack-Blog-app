@@ -11,7 +11,7 @@ export default Base.extend({
   },
 
   async authenticate(email, password) {
-    console.log(email, password);
+    //console.log(email, password);
     let res = await fetch(
       'https://blog-app-api123.herokuapp.com/users/auth/login',
       {

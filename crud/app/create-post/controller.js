@@ -15,7 +15,7 @@ export default class CreatePostController extends Controller {
 
   @action
   update(attr, event) {
-    console.log(attr, event);
+    //console.log(attr, event);
     this[attr] = event.target.value;
   }
 
@@ -29,7 +29,7 @@ export default class CreatePostController extends Controller {
 
     function failure(err) {
       // handle the error
-      console.log(err);
+      //console.log(err);
     }
     event.preventDefault();
     let post = this.store.createRecord('post', {

@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
 });
 //Add Product
 router.post('/', async (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   let blog = new Blog({
     postTitle: req.body.post.postTitle,
     description: req.body.post.description,
@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 
   blog = await blog.save((err, result) => {
     if (err) {
-      console.log(err);
+      //console.log(err);
       return res.status(400).json({ message: 'No Blog Added', success: false });
     }
     return res.status(200).json({ post: result });

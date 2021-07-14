@@ -10,7 +10,7 @@ export default class UpdatePostRoute extends Route {
     const data = await this.store
       .findRecord('post', id)
       .then((data) => {
-        console.log(data);
+        //console.log(data);
       })
       .catch((err) => {
         this.transitionTo('notFounded', 404);

@@ -4,7 +4,7 @@ export default class PostBoxFilterComponent extends Component {
   get results() {
     let { posts, query } = this.args;
     if (query) {
-      console.log(posts.postTitle, 'Ihhhhhhhhh');
+      //console.log(posts.postTitle, 'Ihhhhhhhhh');
       posts = posts.filter((post) =>
         post.postTitle.toLowerCase().includes(query.toLowerCase())
       );

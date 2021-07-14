@@ -14,9 +14,9 @@ export default class UpdatePostController extends Controller {
   @tracked image;
   @action
   update(attr, event) {
-    console.log(attr, event);
+    //console.log(attr, event);
     this[attr] = event.target.value;
-    console.log(this.postId);
+    //console.log(this.postId);
   }
 
   @action
@@ -30,7 +30,7 @@ export default class UpdatePostController extends Controller {
 
     function failure(err) {
       // handle the error
-      console.log(err);
+      //console.log(err);
     }
     const { postTitle, description, image, author } = this;
     this.store.findRecord('post', this.postId).then(function (post) {

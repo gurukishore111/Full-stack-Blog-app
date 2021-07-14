@@ -24,7 +24,7 @@ export default class PostDetailsController extends Controller {
 
     function failure(err) {
       // handle the error
-      console.log(err);
+      //console.log(err);
     }
     if (confirm('Are you sure to remove this content ?')) {
       let post = this.store.peekRecord('post', id);
