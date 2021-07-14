@@ -199,6 +199,9 @@ ol {
   .posts {
     grid-template-columns: repeat(2, 1fr);
   }
+  .container {
+    margin: 1rem;
+  }
 }
 
 @media (max-width: 500px) {
